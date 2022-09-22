@@ -33,7 +33,12 @@ public class Spinner {
 			}
 			else{
 				low = high;
-				index++;
+				//index++;
+				// Add a while loop saying that the index value cannot exceed the length of possibilities
+				// This prevents the index being a value greater than the size of the array
+				while (index < probabilities.length - 1) {
+					index++;
+				}
 			}
 		}
 		return result;
