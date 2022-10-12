@@ -21,24 +21,28 @@ public class Spinner {
 	 * based on the given probabilities.
 	 */
 	public String numToWord(double spinNumber){	
-		int index = 1;
+//		int index = 1;
+// 		The above code doesn't work because arrays start at index 0
+// 		By starting index at 1, it will never equal Oink and will try to access an element at index 4
+//		While the array only goes up to index 3
+		int index = 0;
 		double low = 0;
 		boolean done = false;
 		String result = "";
 		while(!done){
+			System.out.println("spin number: " + spinNumber);
+			System.out.println("low: " + low);
+			System.out.println("probaility: " + probabilities[index]);
+			System.out.println("index: " + index);
 			double high = probabilities[index] + low;
+			System.out.println("high: " + high);
 			if(spinNumber>= low && spinNumber< high){
 				result = sections[index];
 				done = true;
 			}
 			else{
 				low = high;
-				//index++;
-				// Add a while loop saying that the index value cannot exceed the length of possibilities
-				// This prevents the index being a value greater than the size of the array
-				while (index < probabilities.length - 1) {
-					index++;
-				}
+				index++;
 			}
 		}
 		return result;

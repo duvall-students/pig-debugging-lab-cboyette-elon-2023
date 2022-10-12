@@ -5,9 +5,7 @@ public class Game {
 	private Player player2;
 	private Random die;
 	private Spinner spinner;
-	//private final String LOSER_SPIN = "grunt";
-	// The loser_spin should have been GRUNT since that is the way the string is stored and displayed
-	private final String LOSER_SPIN = "GRUNT";
+	private final String LOSER_SPIN = "grunt";
 	private final int LOSER_ROLL = 1;
 	
 	public Game(){
@@ -74,13 +72,16 @@ public class Game {
 			
 			if(roll == LOSER_ROLL){
 				System.out.println("Lose a turn.");
-				if(spin == LOSER_SPIN.toUpperCase()) {
+				if(spin.equals(LOSER_SPIN.toUpperCase())) {
 					System.out.println("Too bad!  Lose all your points.");
 					whoseTurn.resetScore();
 				}
-					return 0;
+				return 0;
 			}
-			else if(spin == LOSER_SPIN.toUpperCase()){
+//			else if(spin == LOSER_SPIN.toUpperCase()) {
+//			The above code doesn't compares the strings letters but instead their numerical value
+//			Thus, we should use .equals when comparing strings
+			else if(spin.equals(LOSER_SPIN.toUpperCase())){
 				System.out.println("Too bad!  Lose all your points.");
 				whoseTurn.resetScore();
 				return 0;
